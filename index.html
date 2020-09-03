@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Offshore FPV and Geography: KG Classification Not a Determinant of FPV Performance</title>
+
+<script src="runningPoster_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 36in 48in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #008080 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #008080;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 0.01 - 0.01 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(48in *  0.01 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color:#0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 0.01);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000060;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000060;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000060;
+font-size: 35px;
+}
+.envelope {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globe {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globetext {
+color: #00000060;
+font-size: 35px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 0.01);
+margin-top: calc(48in * (1 - 0.01));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title">Offshore FPV and Geography: KG Classification Not a Determinant of FPV Performance</h1><br>
+<h3 id="author" class="author">
+
+Abdulhadi Ayyad,<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:abdulhadi.ayyad@uclmail.net" class="email">abdulhadi.ayyad@uclmail.net</a> <br>
+  </h3>
+
+<h5 id="author_extra", class="author_extra">
+ Sara Mirbagheri-Golroodbari,<sup>2</sup>
+ Prof. Wilfried van Sark<sup>2</sup>
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> MSc Student, Utrecht University, Utrecht, the Netherlands<br> <sup>2</sup> Copernicus Institute for Sustainable Development, Utrecht University, the Netherlands
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>FPV installations account for only a limited (~1%) of all solar PV globally, but at present they are receiving increased attention due to the possibility of making use of (expected) lower temperatures at or near water bodies as well as a favorable lack of shading regimens<span class="citation">(Bank <a href="#ref-handbookFPV" role="doc-biblioref">2019</a><a href="#ref-handbookFPV" role="doc-biblioref">a</a>)</span>. In addition, a subset of authors are also paying attention to the possibilities afforded by deploying FPV offshore. Offshore FPV are particularly attractive for small, island nations</p>
+<div id="objectives" class="section level2">
+<h2>Objectives</h2>
+<p>Our work uses a simple, easy to reproduce model aimed at responding to three questions:</p>
+<ol style="list-style-type: decimal">
+<li>Does the use of offshore FPV always lead to an improvement of performance of PV yield compared to land-based systems?</li>
+<li>For a given site on earth, can such an improvement be quantified?</li>
+<li>Does the quantification/definition of an “offshore advantage” correlate with a set of reasonable climate-related factors?</li>
+</ol>
+</div>
+</div>
+<div id="general-approach-and-methods" class="section level1">
+<h1>General Approach and Methods</h1>
+<p>A photovoltaic cell of a given type will have an efficiency <span class="math inline">\(\eta\)</span> which is a direct function of the operating cell temperature and its own efficiency at Standard Testing Conditions, <span class="math inline">\(\eta_{STC}\)</span> . For a monocrystalline Silicon cell, this can be modelled by:
+<span class="math display">\[
+\eta = \eta_{STC} *(1 - \beta * (T_{cell} - 25)) + \eta_{STC}* \gamma *Ilog_{10}(I)
+\]</span>
+This cell temperature is in turn a function of both the ambient conditions surrounding the cell as well as the exact type of cell. Notably, the sensitivity of a PV cell to the ambient conditions, and therefore, the cell temperature, can change significantly for varying PV cell technologies. In our work, we simulate panels/modules which are composed entirely of mono-Si PV cells. Using long-term weather data, we model the monthly performance of an offshore FPV panel and compare it to a land-based PV panel which lies at a pre-determined distance of ~ 112 km. By defining the yield as $Y = G $ where <span class="math inline">\(G\)</span> is the insolation incident on the panel, we can also define an “offshore advantage” which is the difference between the yield at the offshore site and at an associated inland site:
+<span class="math display">\[ \delta = Y_{offshore} - Y_{inland} \]</span></p>
+<div id="data-gathering-and-modifications" class="section level2">
+<h2>Data Gathering and Modifications</h2>
+<p>To start with, 20 coastal sites were chosen arbitrarily. Each of these sites had a given orientation, which is the cardinal direction from which a ship would move in order to reach out to see. A distance of 56 kms in a straight line was defined in two directions: one towards the inland, and a second out to the coast. The locations of the original locations</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>The set of initial coastal sites from which the other sites were constructed.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:right;">
+lon
+</th>
+<th style="text-align:right;">
+lat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Bandar Penawar
+</td>
+<td style="text-align:right;">
+104.23
+</td>
+<td style="text-align:right;">
+1.56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Puerto Colombia
+</td>
+<td style="text-align:right;">
+-74.96
+</td>
+<td style="text-align:right;">
+10.99
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Port Vell
+</td>
+<td style="text-align:right;">
+2.18
+</td>
+<td style="text-align:right;">
+41.38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+Katsuura
+</td>
+<td style="text-align:right;">
+140.32
+</td>
+<td style="text-align:right;">
+35.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+DaNang Port Authority
+</td>
+<td style="text-align:right;">
+108.22
+</td>
+<td style="text-align:right;">
+16.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+South Golden Beach
+</td>
+<td style="text-align:right;">
+153.55
+</td>
+<td style="text-align:right;">
+-28.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+Kwala Tanjung
+</td>
+<td style="text-align:right;">
+99.45
+</td>
+<td style="text-align:right;">
+3.35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+New Limassol Port
+</td>
+<td style="text-align:right;">
+33.02
+</td>
+<td style="text-align:right;">
+34.65
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+Port Antonio
+</td>
+<td style="text-align:right;">
+-76.45
+</td>
+<td style="text-align:right;">
+18.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+Tanzania Port Authority
+</td>
+<td style="text-align:right;">
+39.29
+</td>
+<td style="text-align:right;">
+-6.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+Ras Laffan
+</td>
+<td style="text-align:right;">
+51.58
+</td>
+<td style="text-align:right;">
+25.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+Ciudad del Carmen
+</td>
+<td style="text-align:right;">
+-91.81
+</td>
+<td style="text-align:right;">
+18.65
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+110
+</td>
+<td style="text-align:left;">
+Puerto La Cruz
+</td>
+<td style="text-align:right;">
+-64.63
+</td>
+<td style="text-align:right;">
+10.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+111
+</td>
+<td style="text-align:left;">
+Port of Rotterdam
+</td>
+<td style="text-align:right;">
+4.13
+</td>
+<td style="text-align:right;">
+51.98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+112
+</td>
+<td style="text-align:left;">
+Port Shepstone
+</td>
+<td style="text-align:right;">
+30.45
+</td>
+<td style="text-align:right;">
+-30.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+113
+</td>
+<td style="text-align:left;">
+Puerto Belgrano
+</td>
+<td style="text-align:right;">
+-62.10
+</td>
+<td style="text-align:right;">
+-38.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+114
+</td>
+<td style="text-align:left;">
+El Emir
+</td>
+<td style="text-align:right;">
+-54.94
+</td>
+<td style="text-align:right;">
+-34.96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+115
+</td>
+<td style="text-align:left;">
+Port Coquitlam
+</td>
+<td style="text-align:right;">
+-122.78
+</td>
+<td style="text-align:right;">
+49.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+116
+</td>
+<td style="text-align:left;">
+Hengsha Island
+</td>
+<td style="text-align:right;">
+121.85
+</td>
+<td style="text-align:right;">
+31.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+117
+</td>
+<td style="text-align:left;">
+Port Moresby
+</td>
+<td style="text-align:right;">
+147.16
+</td>
+<td style="text-align:right;">
+-9.47
+</td>
+</tr>
+</tbody>
+</table>
+<p>We relied on the “CLIMATOLOGY” database of 30-year (1984-2013) averages made available through the NASA Prediction of Worldwide Energy Resources service, through the R programming API created by Adam Sparks <span class="citation">(Sparks <a href="#ref-sparks" role="doc-biblioref">2018</a>)</span>. Downloaded datasets covered temperatures at 2-meter elevation; wind speeds at 5- and 10-meter elevations; averaged daylight hours (to convert from insolation to irradiance);</p>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p>Results of efficiencies (%) and yields (kWh/<span class="math inline">\(m^2\)</span> or scaled up to MWh) were obtained as monthly averages for each of the 60 sites. Efficiencies were converted into weighted annual averages while yields were</p>
+<div id="temperature-advantages" class="section level2">
+<h2>Temperature advantages</h2>
+<p>One unexpected and early result was that there was no general rule which dictated that the offshore sites experienced temperatures lower than the inland sites. Indeed, in only 34.6% of the total number of months (12 months of average for each of 20 triplets) were the temperatures of the offshore sites colder than the temperatures of the associated inland site. This highlights the highly localized nature of how temperatures are distributed across the earth’s surface (including both land and open seas).</p>
+</div>
+<div id="kg-classification-and-fpv-yield" class="section level2">
+<h2>KG Classification and (F)PV Yield</h2>
+<p>Contrary to expectations, our results show that the Koeppen-Geiger (KG) climate zone classification system was not a meaningful predictor of PV yield. Specifically, when the monthly yields of PV panels were arranged in monthly values, a K-means clustering algorithm was unable to accurately classify the sites in accordance with the KG classification of the coastal site. Note that KG classifications for offshore sites were not forthcoming. In preparing this dataset, we also ensured that the monthly values for all given sites were arranged in the proper order for whether they were north or south of the equator; this meant that the sites followed a summer-winter pattern always, and prevented the confusion which would otherwise ensue if PV yields from June in Argentina, for example, were compared to PV yields for June in, say, Canada.
+These results are shown below. The three clusters represent where the k-means algorithm places the site. Next to these are the top and second level of detail of the KG class for each site. Note that increasing the number of centers or looking at a deeper level of the KG class does not improve the sorting.</p>
+<br>
+<br>
+<br>
+<br>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-3">Table 2: </span>An unsupervised learning method could not find a way to arrange the sites in accordance to the KG classification scheme.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Port.name
+</th>
+<th style="text-align:right;">
+Cluster.A
+</th>
+<th style="text-align:right;">
+Cluster.B
+</th>
+<th style="text-align:right;">
+Cluster.C
+</th>
+<th style="text-align:left;">
+KGC.1.
+</th>
+<th style="text-align:left;">
+KGC.2.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Bandar Penawar
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Af
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Puerto Colombia
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Aw
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port Vell
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katsuura
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DaNang Port Authority
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Am
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+South Golden Beach
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kwala Tanjung
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Af
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New Limassol Port
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port Antonio
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Am
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tanzania Port Authority
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Aw
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ras Laffan
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+BW
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ciudad del Carmen
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Aw
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Puerto La Cruz
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+BS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port of Rotterdam
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port Shepstone
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Puerto Belgrano
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+El Emir
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port Coquitlam
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hengsha Island
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cf
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Port Moresby
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Aw
+</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br>
+<br>
+<br></p>
+</div>
+<div id="regression-and-offshore-advantage" class="section level2">
+<h2>Regression and offshore advantage</h2>
+<p>Our original results provided the PV yields in units of <span class="math inline">\(kWh/m^2\)</span>; making a number of simplifications, we then scaled up to the yield of a 1 <span class="math inline">\(MW_{p}\)</span> of a solar PV plant, and defined a yield in MWh per year for each site. Finally, we calculated an “offshore advantage” in yields for each triplet as described above. The map below shows how this offshore advantage differs from one location to the next.</p>
+<div class="figure">
+<img src="PlotsFigures/maps/world_map_actual_values2.png" alt="" />
+<p class="caption">The amount by which an offshore FPV outperformed an associated inland site varied according to an intricate geographical pattern.</p>
+</div>
+<p>Next, we looked at ways to correlate the offshore advantage with a number of different climatological indicators. Unsurprisingly, there are a number of different regression models which can explain the data. Some of these are overly obvious and/or examples of overfitting, such as tying the differences in yield to differences in insolation. Instead, the following correlation gives the difference in (expected) daily yield, measured in kWh, as a function of the latitude of the coastal site (<span class="math inline">\(L\)</span>), the difference in average daily temperature between the offshore and inland site, and the normalised difference in the clearness index between the sites, for a weighted annual average. The below expression</p>
+<p><span class="math display">\[ Y_{day} = 0.02 - 0.03L  - 0.02L^2 -0.1 \nabla T_{day, year} + \nabla K_{annual}^T\]</span></p>
+<p>The next map displays the high level of agreement between the modelled results and the results of the regression model.</p>
+<div class="figure">
+<img src="PlotsFigures/maps/world_map_fitted_values2.png" alt="" />
+<p class="caption">The amount by which an offshore FPV outperformed an associated inland site varied according to an intricate geographical pattern.</p>
+</div>
+<p>In general, the offshore advantage for PV yields followed a specific pattern and could be modelled with a high degree of certainty ( $ R^2 &gt; 90% $). There were a number of models of varying levels of success, but our main result attempts to give an explanation which has a lot of explanatory power but is also not a foregone conclusion.</p>
+</div>
+</div>
+<div id="economic-impacts" class="section level1">
+<h1>Economic impacts</h1>
+<p>Define $ LCOE $ as the difference in the LCOE between an offshore and an inland site. Our modelling indicates that this value will vary greatly by location. Specifically, within our dataset, we calculate that $ LCOE $ in a country like Vietnam may be as little as 30% of that for Malaysia. This is despite a much higher interest rate in the former (7.5% vs. 4.5%). This demonstrates how the same geographical constraints which define offshore FPV gains have economic impacts. Additional data for this economic modelling came from <span class="citation">(Bank <a href="#ref-secondWorldBankReport" role="doc-biblioref">2019</a><a href="#ref-secondWorldBankReport" role="doc-biblioref">b</a>)</span> and <span class="citation">(Olivera-Pinto and Stokkermans <a href="#ref-sameasus" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-handbookFPV">
+<p>Bank, World. 2019a. “Where Sun Meets Water: Floating Solar Handbook for Practitioners.” The World Bank.</p>
+</div>
+<div id="ref-secondWorldBankReport">
+<p>———. 2019b. “Where Sun Meets Water: Floating Solar Market Report.” The World Bank; http://documents1.worldbank.org/curated/en/579941540407455831/pdf/Floating-Solar-Market-Report-Executive-Summary.pdf.</p>
+</div>
+<div id="ref-sameasus">
+<p>Olivera-Pinto, Sara, and Jasper Stokkermans. 2020. “Assessment of the Potential of Different Floating Solar Technologies: Overview and Analysis of Different Case Studies.” <em>Energy Conversion and Management</em>, no. 211.</p>
+</div>
+<div id="ref-sparks">
+<p>Sparks, Adam H. 2018. “Nasapower: A Nasa Power Global Meteorology, Surface Solar Energy and Climatology Data Client for R.” <em>The Journal of Open Source Software</em> 3 (30).</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=>
+</div>
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
